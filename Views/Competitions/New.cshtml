@@ -1,0 +1,25 @@
+@model Competition
+@{
+    ViewData["Title"] = "New competition";
+}
+
+@using(Html.BeginForm("New","Competitions",FormMethod.Post))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Competition name")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(o => o.CompetitionName)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-dark">Create</button>
+}

@@ -1,0 +1,24 @@
+@model List<Competition>
+@{
+    ViewData["Title"] = "Competitions list";
+}
+
+@Html.ActionLink("New","New","Competitions",htmlAttributes:new Dictionary<string, object> { { "class", "btn btn-dark" }})
+
+<table class="table">
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+@foreach(var item in Model?.ToList() ?? new List<Competition>())
+{
+<tr>
+    <td>@item.CompetitionName</td>
+    <td>@using(Html.BeginForm("Delete","Competitions",new {id = item.Id},FormMethod.Post)){ <button type="submit" class="btn btn-danger">Delete</button> }</td>
+</tr>
+}
+</tbody>
+</table>
